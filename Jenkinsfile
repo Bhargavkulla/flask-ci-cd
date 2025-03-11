@@ -11,13 +11,13 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/kpkm25/flask-ci-cd.git'
+                git 'https://github.com/Bhargavkulla/flask-ci-cd.git'
             }
         }
         stage('Build Docker Image') {
             steps {
                 container('jnlp') {
-                    sh 'docker build -t kpkm25/flask-ci-cd:latest .'
+                    sh 'docker build -t bhargavakulla/flask-ci-cd:latest .'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 container('jnlp') {
                     withDockerRegistry([credentialsId: 'docker-creds', url: '']) {
-                        sh 'docker push kpkm25/flask-ci-cd:latest'
+                        sh 'docker push bhargavakulla/flask-ci-cd:latest'
                     }
                 }
             }
