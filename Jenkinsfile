@@ -30,12 +30,6 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Kubernetes') {
-            steps {
-                container('jnlp') {
-                    sh 'kubectl apply -f k8s-deployment.yaml'
-                }
-            }
-        }
+       
     }
 }
